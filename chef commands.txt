@@ -1,0 +1,80 @@
+
+            https://api.chef.io/login
+			
+			
+			for html file made picture to html (http://imgbb.com/upload)
+
+			 
+			<<<=====node1=====>>>>  chef-workstation
+
+			chef generate cookbook appache
+			
+	#	knife bootstrap 18.219.125.227 --ssh-user ec2-user --sudo --identity-file New_aws.pem --node-name CHEF_KITCHEN
+	
+	# knife bootstrap 45.33.76.60 --ssh-user root --ssh-password dkfue@321 --node-name chefnode
+	
+	#   knife ssh 'name:node1' 'sudo chef-client' --ssh-user ec2-user --identity-file /opt/chef-repo/demo.pem
+	
+	# 	knife cookbook upload apache
+	
+	# 	knife node run_list add node1 recipe[apache]
+	
+	
+	<<<=====node2=====>>>>  nagios_ubuntu
+	
+	#   knife bootstrap 18.221.77.165 --ssh-user ubuntu --sudo --identity-file /opt/chef-repo/demo.pem --node-name node2
+	
+	#   knife ssh 'name:node2' 'sudo chef-client' --ssh-user ubuntu --identity-file /opt/chef-repo/demo.pem
+	
+	
+	# 	knife cookbook upload apache
+	
+	# 	knife node run_list add node2 recipe[apache]
+	
+	<<<=====node3=====>>>>  chef_server
+	
+	#   knife bootstrap 18.220.101.43 --ssh-user ec2-user --sudo --identity-file /opt/chef-repo/demo.pem --node-name node3
+	
+    #   knife ssh 'name:node3' 'sudo chef-client' --ssh-user ec2-user --identity-file /opt/chef-repo/demo.pem
+	
+	#   knife cookbook upload apache
+	
+	#   	knife node run_list add node3 recipe[apache]
+
+	<<<=====node4=====>>>>  chef_node
+	
+	#   knife bootstrap 18.218.154.24 --ssh-user ec2-user --sudo --identity-file /opt/chef-repo/demo.pem --node-name node4
+    #   knife ssh 'name:node4' 'sudo chef-client' --ssh-user ec2-user --identity-file /opt/chef-repo/demo.pem
+	  
+	# knife cookbook upload apache
+	
+	# knife node run_list add node4 recipe[apache]
+      
+	   knife bootstrap 172.17.0.3 -x venkey -p '12345' -N node5
+	
+	knife bootstrap windows winrm 192.168.11.1 --winrm-user venkey623@live --winrm-password 'venkey(~)8' --node-name node5-windows --run-list 'recipe[learn_chef_iis]'
+    DOwnload the cookbook using knige 
+	knife cookbook site download haproxy
+	
+	192.168.99.1
+	#   sudo -i
+	#	cd /opt/chef-repo/demo
+	
+	
+  knife node run_list add node1 node2 node3 node4 recipe[apache]
+  
+  
+  
+   knife cookbook list
+
+
+
+
+
+
+
+
+
+
+
+

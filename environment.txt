@@ -1,0 +1,3 @@
+you can be categorised your cookbooks according to that what sort of inforastructure client has needed.
+like client has needed certain kind of inforastructure the way we will categorised cookbook versions into environments
+let's take cookbook A  we have 

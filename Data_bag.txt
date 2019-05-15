@@ -1,0 +1,53 @@
+Creating Data-bags:	 http://www.tothenew.com/blog/securing-chef-resources-using-databags/
+
+knife data bag create my_databag my_databag_item
+This would create a directory named "my_databa"
+which is our data-bag and this directory has created a file named "my_databag_item.json"  which is a data-bag item.
+
+Let’s say the "plain-text" content of that we want to encrypt is:
+
+{
+ "id": "my_databag",
+"password1": “abc123”,
+ "password2": “123abc”
+}
+
+
+And after encryption this file would look like:
+
+
+{
+ "id": "my_databag",
+ "password1": {
+   "encrypted_data": "XXXXXXXXXXXXXXXXXXXXXXXXX",
+   "iv": "XYXYXYXYXYYXYXYXYXYXYXY",
+   "version": 1,
+   "cipher": "aes-256-cbc"
+ },
+ "password2": {
+   "encrypted_data": "YYYYYYYYYYYYYYYYYYYYYYYYYY",
+   "iv": "YXYXYXYXYXYXYXYXYXYXYXYX",
+   "version": 1,
+   "cipher": "aes-256-cbc"
+ }
+}
+
+
+
+Here are few variation which we generally use:
+
+We do not want to create data-bag on chef-server but want to create a data-bag locally:
+
+
+knife data bag create my_databag my_databag_item --local-mode flag
+
+We do not want to use a default secret key but instead want to use self-created secret key:
+
+
+#One of the many ways to create secret key:
+
+openssl rand -base64 512 | tr -d '\r\n' > /path/to/my_secret_key
+
+#Create data-bag using my_secret_key
+
+knife data bag create my_databag my_databag_item --local-mode --secret-file  /path/to/my_secret_key
