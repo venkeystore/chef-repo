@@ -66,6 +66,9 @@
   
   
    knife cookbook list
+   To download cookbook from chef server
+   knife download packages
+
 
 
 
